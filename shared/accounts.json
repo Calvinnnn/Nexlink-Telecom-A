@@ -1,0 +1,38 @@
+{
+  "acc_001": {
+    "account_age_days": 400,
+    "device_new": false,
+    "location_changed": false,
+    "recent_support_tickets": 0,
+    "recent_sim_swaps": 0,
+    "device_reputation": "trusted",
+    "is_vip": false
+  },
+  "acc_002": {
+    "account_age_days": 15,
+    "device_new": true,
+    "location_changed": true,
+    "recent_support_tickets": 1,
+    "recent_sim_swaps": 3,
+    "device_reputation": "unknown",
+    "is_vip": false
+  },
+  "acc_003": {
+    "account_age_days": 900,
+    "device_new": true,
+    "location_changed": true,
+    "recent_support_tickets": 2,
+    "recent_sim_swaps": 0,
+    "device_reputation": "unknown",
+    "is_vip": true
+  },
+  "acc_004": {
+    "account_age_days": 200,
+    "device_new": true,
+    "location_changed": false,
+    "recent_support_tickets": 1,
+    "recent_sim_swaps": 0,
+    "device_reputation": "unknown",
+    "is_vip": false
+}
+}
