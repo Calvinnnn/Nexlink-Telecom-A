@@ -45,7 +45,7 @@ def parse_unconstrained(raw_text):
     else:
         thought = raw_text.strip()
 
-    # لو الموديل نسي يكتب الأكشن، الدالة دي هترمي Error، وبما إننا شيلنا الـ try-except، الكود هيكراش فوراً!
+  
     if not action:
         raise ValueError("Could not find an 'Action:' in the response.")
 
