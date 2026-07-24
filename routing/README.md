@@ -33,3 +33,20 @@ Having a wallet
 Requesting a replacement
 
 Any single one of these might not be enough on its own, but together, they indicate high risk.
+
+
+**when does it fail**
+
+The "Murder" Scenario
+
+The caller says:
+
+"I am in Cairo, but the phone is available in Cairo because my brother has it."
+
+The model might classify this as:
+
+High Risk
+
+or Medium Risk
+
+However, the router cannot change its mind after new information emerges.
