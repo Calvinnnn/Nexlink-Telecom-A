@@ -16,6 +16,9 @@ ARCHITECTURAL_NOTES = {
     "acc_003": "MEDIUM/HIGH_RISK: VIP + new device + location_changed + old account (900d). LIMITATION: Router cannot weight VIP status or reconsider after initial classification.",
     "acc_004": "MEDIUM_RISK expected: new device only but account age 200d, location stable. Should VERIFY. No limitation",
     "acc_005": "⚠️ ROUTING LIMITATION CASE: New account (20d) + device_new + location_changed, BUT clean history (0 SIM swaps, trusted device). Router will classify as HIGH_RISK and ESCALATE immediately. A multi-step agent could ask 'Did you upgrade your phone?' and accept the explanation. Router cannot reconsider.",
+    "acc_006": "REACTIVE LIMITATION CASE: Customer uses social-pressure language despite low-risk account signals. Hard-coded rules cannot understand or react to persuasive emotional pressure.",
+    "acc_007": "UNCONSTRAINED_REACT LIMITATION CASE: Ambiguous moderate-risk input with missing reputation data. Unvalidated model output may hallucinate or produce an invalid action.",
+    "acc_008": "CONSTRAINED_REACT LIMITATION CASE: Borderline signals requiring multi-step reasoning. The constrained agent may hit MAX_STEPS or escalate if it cannot resolve the conflict within validation limits.",
 }
 
 

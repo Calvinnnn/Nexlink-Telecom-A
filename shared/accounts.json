@@ -44,6 +44,39 @@
     "device_reputation": "trusted",
     "is_vip": false,
     "note": "ROUTING LIMITATION CASE: New account (20d) + device/location change, BUT no previous SIM swaps and trusted device. Router classifies as HIGH_RISK immediately without context. A ReAct agent could ask: 'Did you recently upgrade your phone?' and accept the explanation. Router cannot reconsider after initial HIGH_RISK classification."
+  },
+  "acc_006": {
+    "account_age_days": 500,
+    "device_new": false,
+    "location_changed": false,
+    "recent_support_tickets": 1,
+    "recent_sim_swaps": 0,
+    "device_reputation": "trusted",
+    "is_vip": false,
+    "customer_statement": "I need this completed now or I will move all my lines to a competitor.",
+    "note": "REACTIVE LIMITATION CASE: The customer is applying social pressure and using persuasive language. A hard-coded rule agent cannot understand or respond to this emotional intensity, even though the underlying account data is low-risk."
+  },
+  "acc_007": {
+    "account_age_days": 90,
+    "device_new": false,
+    "location_changed": false,
+    "recent_support_tickets": 0,
+    "recent_sim_swaps": 1,
+    "device_reputation": null,
+    "is_vip": false,
+    "customer_statement": "I am traveling but my backup phone is still with me.",
+    "note": "UNCONSTRAINED_REACT LIMITATION CASE: Ambiguous moderate-risk account with missing reputation data. An unconstrained agent may hallucinate details, produce invalid actions, or fail to stop cleanly without output validation."
+  },
+  "acc_008": {
+    "account_age_days": 110,
+    "device_new": true,
+    "location_changed": false,
+    "recent_support_tickets": 2,
+    "recent_sim_swaps": 0,
+    "device_reputation": "unknown",
+    "is_vip": false,
+    "customer_statement": "I replaced my phone and forgot to update my registered location.",
+    "note": "CONSTRAINED_REACT LIMITATION CASE: Borderline signals require multiple valid tool calls and follow-up reasoning. The constrained agent may hit MAX_STEPS or escalate if it cannot resolve the conflict within the step limit."
   }
 }
 
