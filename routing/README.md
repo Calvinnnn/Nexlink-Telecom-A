@@ -74,4 +74,25 @@ Reactive
 
 Routing
 
-“The deterministic routing agent added one LLM classification step, which improved flexibility and reduced the number of hard-coded rules. However, it still could not conduct a multi-step investigation or revise its decision after receiving new evidence.
+“The deterministic routing agent added one LLM classification step, which improved flexibility and reduced the number of hard-coded rules. However, it still could not conduct a multi-step investigation or revise its decision after receiving new evidence."
+
+## Running routing
+
+From the `routing/` directory, run:
+
+```bash
+cd /home/calvin/Desktop/Nexlink-Telecom-A/Nexlink-Telecom-A/routing
+python run_routing.py LOW_RISK
+```
+
+You can also choose a different sample customer:
+
+```bash
+python run_routing.py HIGH_RISK --customer-id acc_002
+```
+
+Or provide a custom customer JSON:
+
+```bash
+python run_routing.py MEDIUM_RISK --customer-json /path/to/customer.json
+```
