@@ -14,3 +14,22 @@ Then, we revert to standard code.
 Deterministic Routing
 
 Customer request → LLM classification → Fixed handler → Final decision
+
+
+
+**why it's better than my first arch reactive?**
+
+
+Because an LLM can aggregate signals.
+
+For example:
+
+Changing devices
+
+Changing governorates
+
+Having a wallet
+
+Requesting a replacement
+
+Any single one of these might not be enough on its own, but together, they indicate high risk.
