@@ -1,0 +1,47 @@
+
+[
+	{
+		"id": "normal_001",
+		"description": "Low-risk customer: same device, same location, no wallet",
+		"input": {
+			"account_id": "acc_001",
+			"action": "RECHARGE",
+			"wallet_present": false,
+			"wallet_location": null,
+			"current_location": "home",
+			"device_id": "dev-A"
+		},
+		"expected_label": "LOW_RISK",
+		"expected_decision": "APPROVE"
+	},
+	{
+		"id": "normal_002",
+		"description": "Medium-risk: device recently changed",
+		"input": {
+			"account_id": "acc_004",
+			"action": "RECHARGE",
+			"wallet_present": false,
+			"wallet_location": null,
+			"current_location": "office",
+			"device_id": "dev-B",
+			"device_new": true
+		},
+		"expected_label": "MEDIUM_RISK",
+		"expected_decision": "VERIFY"
+	},
+	{
+		"id": "normal_003",
+		"description": "High-risk: wallet present and location mismatch",
+		"input": {
+			"account_id": "acc_002",
+			"action": "PORT_OUT",
+			"wallet_present": true,
+			"wallet_location": "country_B",
+			"current_location": "country_A",
+			"device_id": "dev-C"
+		},
+		"expected_label": "HIGH_RISK",
+		"expected_decision": "ESCALATE"
+	}
+]
+

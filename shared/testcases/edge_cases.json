@@ -1,0 +1,44 @@
+
+[
+	{
+		"id": "edge_001",
+		"description": "Account exactly 120 days old requesting PORT_OUT (boundary)",
+		"input": {
+			"account_id": "acc_004",
+			"action": "PORT_OUT",
+			"wallet_present": false,
+			"wallet_location": null,
+			"current_location": "home",
+			"device_id": "dev-D",
+			"account_age_days": 120
+		},
+		"notes": "Rule: account_age < 120 for PORT_OUT is HIGH_RISK; equal 120 should NOT be flagged by that rule",
+		"expected_label": "MEDIUM_RISK"
+	},
+	{
+		"id": "edge_002",
+		"description": "Missing account_id field",
+		"input": {
+			"action": "RECHARGE",
+			"wallet_present": false,
+			"current_location": "unknown",
+			"device_id": "dev-unknown"
+		},
+		"notes": "Classifier should handle missing account data gracefully",
+		"expected_label": "HIGH_RISK"
+	},
+	{
+		"id": "edge_003",
+		"description": "Account with many recent SIM swaps",
+		"input": {
+			"account_id": "acc_002",
+			"action": "RECHARGE",
+			"wallet_present": false,
+			"current_location": "country_A",
+			"device_id": "dev-C",
+			"recent_sim_swaps": 3
+		},
+		"expected_label": "HIGH_RISK"
+	}
+]
+
