@@ -58,14 +58,14 @@ def run_agent(account_id, extra_context=""):
         
     step_count = 0
 
-    # الكارثة الأولى: مفيش ضمان للانتهاء (No termination guarantee & Unbounded chains)
+   
     while True:
         step_count += 1
         print(f"\n---Step {step_count} ---")
 
         raw_response = call_model(transcript)
 
-        # الكارثة التانية: بناخد كلام الموديل ثقة عمياء من غير أي Validation أو try-except
+        
         step = parse_unconstrained(raw_response)
         
         print(f"Thought: {step.thought}")
@@ -76,7 +76,7 @@ def run_agent(account_id, extra_context=""):
             print(f"Total steps used: {step_count}")
             return step.action_input
 
-        # الكارثة التالتة: تنفيذ أعمى (Blind Execution) - لو الموديل خرف وكتب اسم Tool غلط، السطر الجاي هيضرب KeyError
+        
         tool_fn = TOOLS[step.action]
         observation = tool_fn(step.action_input)
         transcript += f"\n{raw_response}\nObservation: {observation}\n"
