@@ -1,26 +1,34 @@
-import warnings
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 import os
 
-warnings.filterwarnings("ignore", category=FutureWarning, module=r"google\.generativeai")
 load_dotenv()
 
-MODEL_NAME = "gemini-2.0-flash"
+MODEL_NAME = "gemini-3.5-flash"
 
-_configured = False
+_client = None
 
 
 def configure_api():
-    global _configured
-    if not _configured:
+    global _client
+
+    if _client is None:
         api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMENI_API")
-        genai.configure(api_key=api_key)
-        _configured = True
+
+        if not api_key:
+            raise ValueError("Google API key not found.")
+
+        _client = genai.Client(api_key=api_key)
+
+    return _client
 
 
 def call_model(prompt):
-    configure_api()
-    model = genai.GenerativeModel(MODEL_NAME)
-    response = model.generate_content(prompt)
+    client = configure_api()
+
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt,
+    )
+
     return response.text

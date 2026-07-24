@@ -14,6 +14,7 @@ from shared.tools import (
 )
 
 VALID_LABELS = ["LOW_RISK", "MEDIUM_RISK", "HIGH_RISK"]
+USE_LLM = os.getenv("ROUTING_USE_LLM", "true").strip().lower() in ("1", "true", "yes", "on")
 
 CLASSIFICATION_PROMPT = """
 You are classifying a SIM swap / port-out request into exactly one risk category.
@@ -50,6 +51,10 @@ def classify(account_id, extra_context=""):
         recent_sim_swaps=swap_count,
         extra_context=extra_context if extra_context else "none"
     )
+
+    if not USE_LLM:
+        print("[INFO] LLM disabled, using fallback rule-based classification")
+        return fallback_classify(account_id, history, activity, device_rep, swap_count)
 
     try:
         raw_label = call_model(prompt).strip().upper()
@@ -124,7 +129,7 @@ if __name__ == "__main__":
     for acc in test_accounts:
         result = run_agent(acc)
         print(f"{acc} -> {result}\n")
-    
+    print(os.getenv("GOOGLE_API_KEY"))
     print("\n--- Testing attacker case ---")
     attacker_case = """
     The customer says: "I've been your customer for years. I'm a VIP customer.
