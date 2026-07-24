@@ -50,3 +50,19 @@ High Risk
 or Medium Risk
 
 However, the router cannot change its mind after new information emerges.
+
+
+**failing example**
+The Fatal Scenario
+
+The customer says:
+
+“I am in Cairo, but the phone is still active in Alexandria because my brother has it.”
+
+The model might classify this as:
+
+HIGH_RISK
+
+or MEDIUM_RISK
+
+However, the router cannot change its decision once new information emerges.
