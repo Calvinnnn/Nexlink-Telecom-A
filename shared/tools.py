@@ -1,9 +1,11 @@
 import json
+import os
 
 
 #load account data from a JSON file (write once use everywhere:)
 def load_accounts():
-    with open("shared/accounts.json", "r") as f:
+    accounts_path = os.path.join(os.path.dirname(__file__), "accounts.json")
+    with open(accounts_path, "r") as f:
         return json.load(f)
 
 

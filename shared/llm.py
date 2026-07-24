@@ -1,25 +1,24 @@
-from google import genai
+import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-MODEL_NAME = "gemini-flash-latest"
+MODEL_NAME = "gemini-2.0-flash"
 
-_client = None
+_configured = False
 
 
-def get_client():
-    global _client #this mean the same var at the top of the file, not a local var
-    if _client is None:
-        _client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY")) #instantiation
-    return _client
+def configure_api():
+    global _configured
+    if not _configured:
+        api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMENI_API")
+        genai.configure(api_key=api_key)
+        _configured = True
 
 
 def call_model(prompt):
-    client = get_client()
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt
-    )
+    configure_api()
+    model = genai.GenerativeModel(MODEL_NAME)
+    response = model.generate_content(prompt)
     return response.text
