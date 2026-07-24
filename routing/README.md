@@ -66,3 +66,12 @@ HIGH_RISK
 or MEDIUM_RISK
 
 However, the router cannot change its decision once new information emerges.
+
+
+Reactive
+
+“We chose the rule-based agent first because it was the cheapest and fastest to build. It performed well on obvious fraud patterns, but it failed whenever the customer’s intent had to be inferred from language or multiple weak signals.”
+
+Routing
+
+“The deterministic routing agent added one LLM classification step, which improved flexibility and reduced the number of hard-coded rules. However, it still could not conduct a multi-step investigation or revise its decision after receiving new evidence.
