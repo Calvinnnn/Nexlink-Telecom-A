@@ -20,3 +20,5 @@ Cannot detect emotional pressure or social-engineering attempts.
 Cannot combine weak signals into a stronger fraud suspicion.
 
 Every new fraud pattern requires adding a new hard-coded rule
+
+**That's all**
