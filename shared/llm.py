@@ -1,7 +1,9 @@
+import warnings
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 
+warnings.filterwarnings("ignore", category=FutureWarning, module=r"google\.generativeai")
 load_dotenv()
 
 MODEL_NAME = "gemini-2.0-flash"
