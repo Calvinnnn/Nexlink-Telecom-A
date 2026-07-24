@@ -1,24 +1,27 @@
-**What is Reactive**
+# Reactive (Rule-Based) Agent
 
-we can say in asimple way its an hard coded arhcitcitrue with poor understanding for natural language 
+## Overview
 
-**how to run**
-make sure you are in right directory 
-type in terminal ./react.py that would allow you to run it :) 
+This implementation uses a pure rule-based approach with no language model. The agent follows a fixed set of `if/else` rules to decide whether to:
 
-**Failing Condtions example**
-when the customer tries to say "I own a company, and if you don't resolve this, I'll move all the lines to another network!"
+- APPROVE
+- REQUEST_VERIFICATION
+- ESCALATE
 
-ofcourse our react arhcitecture won't be able to deal with it xD 
+The decision is based on account history, recent activity, device reputation, and SIM swap history.
 
-**Reactive — Limitations**
+## Limitations
 
-Cannot understand natural language.
+Because all decisions are hard-coded, the agent cannot reason about conflicting signals or adapt to new scenarios without adding more rules.
 
-Cannot detect emotional pressure or social-engineering attempts.
+## Model / Provider
 
-Cannot combine weak signals into a stronger fraud suspicion.
+None (No LLM is used).
 
-Every new fraud pattern requires adding a new hard-coded rule
+## How to Run
 
-**That's all**
+From the project root:
+
+```bash
+python reactive/main.py
+```
